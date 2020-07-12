@@ -33,26 +33,25 @@ p {
 }
 
 body, html {
-    height: 100%;
+    min-height: 100vh;
     margin: 0;
 }
 
 .container {
-    height: 100%;
+    min-height: 100vh;
     padding: 30px;
     display: flex;
     align-content: center;
     background-color:var(--light-Gray)
 }
 
-main.card-container {
+.card-container {
     display: grid;
     grid-template-areas: "head head"
                          "left right";
     grid-template-columns: repeat(2, 1fr);
     flex-grow: 1;
     max-width: 800px;
-    min-width: calc(375px - 60px);
     margin: auto;
     border-radius: 10px;
     box-shadow: 0px 0px 43px -12px rgba(0,0,0,0.67);
@@ -72,6 +71,7 @@ main.card-container {
 
 .head p{
     line-height: 1.7;
+    letter-spacing: 0.5px;
 }
 .side-left {
     grid-area: left;
@@ -151,4 +151,30 @@ main > * {
 
 .button-sign-up button:hover {
    background-color: var(--bright-yellow-dark);
+}
+
+@media only screen and (max-width: 680px) {
+    .card-container {
+        grid-template-areas: 'head'
+                             'left'
+                             'right';
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .side-left {
+        border-radius: 0;
+    }
+
+    .side-right {
+        border-bottom-left-radius: inherit;
+    }
+
+    main > * {
+        padding: 10%;
+    }
+
+    .button-sign-up button {
+        margin: 20px 0;
+    }
 }
